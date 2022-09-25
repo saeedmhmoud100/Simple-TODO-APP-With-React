@@ -1,0 +1,26 @@
+nav {
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #080;
+  height: 60px;
+  padding: 0 20px;
+}
+nav .logo {
+  font-size: 2em;
+  color: white;
+}
+
+nav .links {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 20%;
+}
+
+nav .links a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
