@@ -1,15 +1,16 @@
 import { Component } from "react";
+import { NavLink } from "react-router-dom";
 import "./nav.css";
 class Nav extends Component {
   render() {
     return (
       <nav>
-        <a href="/" className="logo">
+        <NavLink to="/" className="logo">
           Logo
-        </a>
+        </NavLink>
         <div className="links">
-          <a href="/component/home">Home</a>
-          <a href="/component/about">About</a>
+          <NavLink to="/component/home">Home</NavLink>
+          <NavLink to="/component/about">About</NavLink>
         </div>
       </nav>
     );

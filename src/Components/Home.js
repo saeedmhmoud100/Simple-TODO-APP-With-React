@@ -1,5 +1,3 @@
-import { Component } from "react";
-
 const Home = _ => {
   return (
     <div>
