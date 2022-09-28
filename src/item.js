@@ -1,19 +1,37 @@
-import { Component } from "react";
+import { Component, Fragment } from "react";
+import axios from "axios";
 
 class Item extends Component {
+  state = {
+    users: []
+  };
+  componentDidMount = _ => {
+    axios.get("https://jsonplaceholder.typicode.com/users").then(n => {
+      this.setState({ users: Array.from(n.data) });
+    });
+  };
   render() {
     return (
-      <div className={"item"}>
-        <div>
-          {this.props.name}
-        </div>
-        <div>
-          {this.props.age}
-        </div>
-        <div>
-          {this.props.job}
-        </div>
-      </div>
+      <Fragment>
+        {this.state.users.map((user, i) => {
+          return (
+            <div className={"item"} key={i}>
+              <div>
+                {i}
+              </div>
+              <div>
+                {user.name}
+              </div>
+              <div>
+                {user.age}
+              </div>
+              <div>
+                {user.job}
+              </div>
+            </div>
+          );
+        })}
+      </Fragment>
     );
   }
 }

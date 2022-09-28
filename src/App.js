@@ -5,7 +5,6 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Nav from "./Components/Nav";
 import Home from "./Components/Home";
 import About from "./Components/About";
-import axios from "axios";
 // class App extends Component {
 //   state = {
 //     Data: [
@@ -52,16 +51,6 @@ import axios from "axios";
 // }
 
 class App extends Component {
-  state = {
-    users: []
-  };
-
-  componentDidMount = _ => {
-    axios.get("https://jsonplaceholder.typicode.com/users").then(n => {
-      this.setState({ users: Array.from(n.data) });
-      console.log(this.state.users);
-    });
-  };
   render() {
     return (
       <BrowserRouter>
@@ -70,12 +59,13 @@ class App extends Component {
           <Routes>
             <Route path="/Component/Home" element={<Home />} />
             <Route path="/Component/About/" element={<About />} />
+            <Route path="/" element={<Item />} />
           </Routes>
-          <div className={"container"}>
+          {/* <div className={"container"}>
             {this.state.users.map((n, i) =>
               <Item key={i} name={n.name} age={n.username} job={n.email} />
             )}
-          </div>
+          </div> */}
         </div>
       </BrowserRouter>
     );
