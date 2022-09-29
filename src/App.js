@@ -13,12 +13,22 @@ class App extends Component {
       items: [...items, { id: ++items.length, task: item.task }]
     });
   };
+
+  handeDelete = id => {
+    let Items = this.state.items.filter(item => item.id !== id);
+    // to Reset The id Of items
+    Items.forEach((item, id) => {
+      item.id = ++id;
+    });
+    this.setState({ items: Items });
+    console.log(id);
+  };
   render() {
     return (
       <div className="container">
         <h2>TODO APP</h2>
         <AddItem addItem={this.AddItem} />
-        <TodoItems items={this.state.items} />
+        <TodoItems items={this.state.items} DeleteItem={this.handeDelete} />
       </div>
     );
   }

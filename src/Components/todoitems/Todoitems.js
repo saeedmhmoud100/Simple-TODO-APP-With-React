@@ -2,9 +2,10 @@ import React from "react";
 import "./Todoitems.css";
 
 const TodoItems = props => {
+  const { items, DeleteItem } = props;
   return (
     <div className="items">
-      {props.items.map((item, index) => {
+      {items.map(item => {
         return (
           <div className={`item`} id={`item-${item.id}`} key={item.id}>
             <div>
@@ -14,7 +15,12 @@ const TodoItems = props => {
               {item.task}
             </div>
             <div>
-              <span style={{ cursor: "pointer" }}> &#935;</span>
+              <span
+                style={{ cursor: "pointer" }}
+                onClick={_ => DeleteItem(item.id)}
+              >
+                &#935;
+              </span>
             </div>
           </div>
         );
