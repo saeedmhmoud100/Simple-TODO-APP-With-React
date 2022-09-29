@@ -14,8 +14,13 @@ class AddItem extends React.Component {
 
   handleSubmit = e => {
     e.preventDefault();
-    this.props.addItem(this.state);
-    e.target.reset();
+    if (this.state.task) {
+      this.props.addItem(this.state);
+      e.target.reset();
+      this.setState({
+        task: ""
+      });
+    }
   };
   render() {
     return (
